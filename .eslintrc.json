@@ -1,0 +1,57 @@
+{
+	"parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
+		"plugin:@typescript-eslint/recommended", // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+		"plugin:@typescript-eslint/eslint-recommended",
+		"eslint-config-prettier"
+	],
+	"parserOptions": {
+		"ecmaVersion": 2018, // Allows for the parsing of modern ECMAScript features
+		"sourceType": "module", // Allows for the use of imports
+		"ecmaFeatures": {
+			"jsx": true // Allows for the parsing of JSX
+		},
+		"extends": "./tsconfig.json"
+	},
+	"plugins": ["prettier", "eslint-plugin-import-helpers", "react-hooks"],
+	"rules": {
+		"no-console": "warn",
+		"no-unused-vars": "off",
+		"quotes": ["error", "single"],
+		"prettier/prettier": "off",
+		"no-mixed-requires": "off",
+		"no-use-before-define": "off",
+		"react/display-name": ["off", { "ignoreTranspilerName": true }],
+		"@typescript-eslint/triple-slash-reference": "off",
+		"@typescript-eslint/no-use-before-define": "off",
+		"@typescript-eslint/class-name-casing": "off",
+		"@typescript-eslint/camelcase": "off",
+		"@typescript-eslint/no-var-requires": "off",
+		"@typescript-eslint/no-empty-interface": "off",
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"import-helpers/order-imports": [
+			"warn",
+			{
+				"newlinesBetween": "always",
+				"groups": ["/^react/", "module", ["parent", "sibling", "index"]],
+				"alphabetize": { "order": "asc", "ignoreCase": true }
+			}
+		]
+	},
+	"overrides": [
+		{
+			"files": ["*.js", "*.jsx"],
+			"rules": {
+				"@typescript-eslint/explicit-function-return-type": "off"
+			}
+		}
+	],
+	"settings": {
+		"react": {
+			"version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+		}
+	}
+}
